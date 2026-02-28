@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Application Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="header">
+        <h1>Application Form</h1>
+        <p>Please fill in your details to apply.</p>
+      </header>
+
+      <form id="appForm" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">Full name <span aria-hidden="true">*</span></label>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" required minlength="2"
+                   placeholder="John Doe" />
+            <small class="error" data-for="fullName"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required
+                   placeholder="john@company.com" />
+            <small class="error" data-for="email"></small>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone <span aria-hidden="true">*</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required
+                   inputmode="tel" placeholder="+1 555 123 4567" />
+            <small class="error" data-for="phone"></small>
+          </div>
+
+          <div class="field">
+            <label for="role">Role you’re applying for <span aria-hidden="true">*</span></label>
+            <select id="role" name="role" required>
+              <option value="">Select a role</option>
+              <option>Frontend Developer</option>
+              <option>Backend Developer</option>
+              <option>Full-Stack Developer</option>
+              <option>Product Designer</option>
+              <option>Sales / Partnerships</option>
+              <option>Other</option>
+            </select>
+            <small class="error" data-for="role"></small>
+          </div>
+
+          <div class="field">
+            <label for="experience">Years of experience <span aria-hidden="true">*</span></label>
+            <input id="experience" name="experience" type="number" required min="0" max="50"
+                   placeholder="3" />
+            <small class="error" data-for="experience"></small>
+          </div>
+
+          <div class="field">
+            <label for="portfolio">Portfolio / LinkedIn</label>
+            <input id="portfolio" name="portfolio" type="url" placeholder="https://..." />
+            <small class="hint">Optional — include a URL if you have one.</small>
+            <small class="error" data-for="portfolio"></small>
+          </div>
+
+          <div class="field full">
+            <label for="resume">Resume (PDF/DOC) <span aria-hidden="true">*</span></label>
+            <input id="resume" name="resume" type="file" required
+                   accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+            <small class="hint">Max 5 MB.</small>
+            <small class="error" data-for="resume"></small>
+          </div>
+
+          <div class="field full">
+            <label for="message">Why should we consider you? <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required minlength="20" rows="5"
+                      placeholder="Briefly explain your background and why you’re a strong fit..."></textarea>
+            <small class="error" data-for="message"></small>
+          </div>
+
+          <div class="field full checkbox">
+            <label>
+              <input id="consent" name="consent" type="checkbox" required />
+              I confirm the information provided is accurate. <span aria-hidden="true">*</span>
+            </label>
+            <small class="error" data-for="consent"></small>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn secondary" id="saveDraftBtn">Save draft</button>
+          <button type="reset" class="btn ghost" id="resetBtn">Reset</button>
+          <button type="submit" class="btn primary" id="submitBtn">Submit application</button>
+        </div>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
